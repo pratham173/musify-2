@@ -1,0 +1,218 @@
+:root {
+  /* Light theme colors */
+  --color-bg-primary-light: #FFFFFF;
+  --color-bg-secondary-light: #F5F5F7;
+  --color-bg-tertiary-light: #E8E8ED;
+  --color-text-primary-light: #000000;
+  --color-text-secondary-light: #6E6E73;
+  --color-border-light: #D2D2D7;
+  
+  /* Dark theme colors */
+  --color-bg-primary-dark: #000000;
+  --color-bg-secondary-dark: #1C1C1E;
+  --color-bg-tertiary-dark: #2C2C2E;
+  --color-text-primary-dark: #FFFFFF;
+  --color-text-secondary-dark: #98989D;
+  --color-border-dark: #38383A;
+  
+  /* Accent colors */
+  --color-accent-blue: #007AFF;
+  --color-accent-purple: #AF52DE;
+  --color-accent-pink: #FF2D55;
+  --color-accent-orange: #FF9500;
+  --color-accent-green: #34C759;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease-out;
+  --transition-medium: 250ms ease-out;
+  --transition-slow: 350ms ease-out;
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-tooltip: 1070;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* Light theme */
+body[data-theme="light"] {
+  background-color: var(--color-bg-primary-light);
+  color: var(--color-text-primary-light);
+}
+
+/* Dark theme */
+body[data-theme="dark"] {
+  background-color: var(--color-bg-primary-dark);
+  color: var(--color-text-primary-dark);
+}
+
+/* Smooth theme transition */
+body {
+  transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--color-bg-tertiary-light);
+  border-radius: var(--radius-full);
+}
+
+body[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--color-bg-tertiary-dark);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary-light);
+}
+
+body[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary-dark);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent-blue);
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Utility classes */
+.fade-in {
+  animation: fadeIn var(--transition-medium);
+}
+
+.slide-up {
+  animation: slideUp var(--transition-medium);
+}
+
+.slide-down {
+  animation: slideDown var(--transition-medium);
+}
+
+.scale-in {
+  animation: scaleIn var(--transition-medium);
+}
+
+/* Glassmorphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body[data-theme="dark"] .glass {
+  background: rgba(28, 28, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

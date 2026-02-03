@@ -1,0 +1,115 @@
+.track-card {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.track-card:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+body[data-theme="dark"] .track-card:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.track-card-image-container {
+  position: relative;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.track-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.track-card:hover .track-card-image {
+  transform: scale(1.05);
+}
+
+.track-card-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent-blue);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  opacity: 0;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.track-card:hover .track-card-play-button {
+  opacity: 1;
+}
+
+.track-card-play-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.track-card-play-button:active {
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.track-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.track-card-title {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-text-primary-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: var(--spacing-xs);
+}
+
+body[data-theme="dark"] .track-card-title {
+  color: var(--color-text-primary-dark);
+}
+
+.track-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary-light);
+}
+
+body[data-theme="dark"] .track-card-meta {
+  color: var(--color-text-secondary-dark);
+}
+
+.track-card-artist {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-card-duration {
+  flex-shrink: 0;
+}
+
+.track-card-duration::before {
+  content: "•";
+  margin-right: var(--spacing-sm);
+}

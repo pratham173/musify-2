@@ -1,0 +1,111 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.input-label {
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-primary-light);
+}
+
+body[data-theme="dark"] .input-label {
+  color: var(--color-text-primary-dark);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary-light);
+  background-color: var(--color-bg-secondary-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+body[data-theme="dark"] .input {
+  color: var(--color-text-primary-dark);
+  background-color: var(--color-bg-secondary-dark);
+  border-color: var(--color-border-dark);
+}
+
+.input::placeholder {
+  color: var(--color-text-secondary-light);
+}
+
+body[data-theme="dark"] .input::placeholder {
+  color: var(--color-text-secondary-dark);
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--color-text-secondary-light);
+}
+
+body[data-theme="dark"] .input:hover:not(:disabled) {
+  border-color: var(--color-text-secondary-dark);
+}
+
+.input:focus {
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* With icons */
+.input-with-left-icon {
+  padding-left: calc(var(--spacing-md) + 24px);
+}
+
+.input-with-right-icon {
+  padding-right: calc(var(--spacing-md) + 24px);
+}
+
+.input-icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary-light);
+  pointer-events: none;
+}
+
+body[data-theme="dark"] .input-icon {
+  color: var(--color-text-secondary-dark);
+}
+
+.input-icon-left {
+  left: var(--spacing-md);
+}
+
+.input-icon-right {
+  right: var(--spacing-md);
+}
+
+/* Error state */
+.input-error {
+  border-color: var(--color-accent-pink);
+}
+
+.input-error:focus {
+  border-color: var(--color-accent-pink);
+  box-shadow: 0 0 0 3px rgba(255, 45, 85, 0.1);
+}
+
+.input-error-message {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent-pink);
+}

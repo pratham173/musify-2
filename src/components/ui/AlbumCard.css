@@ -1,0 +1,128 @@
+.album-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-medium);
+  cursor: pointer;
+  background-color: var(--color-bg-secondary-light);
+}
+
+body[data-theme="dark"] .album-card {
+  background-color: var(--color-bg-secondary-dark);
+}
+
+.album-card:hover {
+  background-color: var(--color-bg-tertiary-light);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+body[data-theme="dark"] .album-card:hover {
+  background-color: var(--color-bg-tertiary-dark);
+}
+
+.album-card:active {
+  transform: translateY(-2px);
+}
+
+.album-card-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-bg-tertiary-light);
+}
+
+body[data-theme="dark"] .album-card-image-container {
+  background-color: var(--color-bg-tertiary-dark);
+}
+
+.album-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.album-card:hover .album-card-image {
+  transform: scale(1.05);
+}
+
+.album-card-play-button {
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent-blue);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all var(--transition-medium);
+  box-shadow: var(--shadow-lg);
+}
+
+.album-card:hover .album-card-play-button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.album-card-play-button:hover {
+  transform: scale(1.1);
+}
+
+.album-card-play-button:active {
+  transform: scale(0.95);
+}
+
+.album-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.album-card-name {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-primary-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+body[data-theme="dark"] .album-card-name {
+  color: var(--color-text-primary-dark);
+}
+
+.album-card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary-light);
+}
+
+body[data-theme="dark"] .album-card-meta {
+  color: var(--color-text-secondary-dark);
+}
+
+.album-card-artist {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.album-card-year::before {
+  content: "•";
+  margin-right: var(--spacing-xs);
+}
