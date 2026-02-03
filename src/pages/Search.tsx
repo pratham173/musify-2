@@ -89,6 +89,8 @@ const Search: React.FC = () => {
     } else if (initialQuery) {
       performSearch(initialQuery);
     }
+    // Only run on mount to handle initial URL params
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
