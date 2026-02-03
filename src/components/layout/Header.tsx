@@ -17,7 +17,7 @@ export default function Header({ title = 'Browse' }: HeaderProps) {
         onClick={toggleTheme}
         aria-label="Toggle theme"
       >
-        {theme === 'dark' ? <SunIcon size={20} /> : <MoonIcon size={20} />}
+        {theme.mode === 'dark' ? <SunIcon size={20} /> : <MoonIcon size={20} />}
       </button>
     </header>
   );
