@@ -1,0 +1,140 @@
+.browse {
+  padding: var(--spacing-lg);
+  overflow-y: auto;
+  height: 100%;
+}
+
+.browse-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.browse-section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-text-primary-light);
+}
+
+body[data-theme="dark"] .browse-section-title {
+  color: var(--color-text-primary-dark);
+}
+
+/* Genres Grid */
+.browse-genres {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.browse-genre-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 100px;
+}
+
+.browse-genre-card:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-lg);
+}
+
+.browse-genre-card:active {
+  transform: scale(0.98);
+}
+
+.browse-genre-name {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Tracks List */
+.browse-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Error State */
+.browse-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.browse-error-icon {
+  font-size: 48px;
+}
+
+.browse-error p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary-light);
+  max-width: 400px;
+}
+
+body[data-theme="dark"] .browse-error p {
+  color: var(--color-text-secondary-dark);
+}
+
+.browse-retry-btn {
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background-color: var(--color-accent-blue);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.browse-retry-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Skeleton Loading */
+.browse-track-skeleton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm);
+}
+
+.browse-track-skeleton-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .browse {
+    padding: var(--spacing-md);
+  }
+
+  .browse-genres {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .browse-genre-card {
+    min-height: 80px;
+    padding: var(--spacing-lg);
+  }
+
+  .browse-genre-name {
+    font-size: var(--font-size-base);
+  }
+}
