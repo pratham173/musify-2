@@ -1,7 +1,8 @@
 import { Track, Album, Artist, JamendoTrack, JamendoAlbum, JamendoArtist } from '../types';
 
 const JAMENDO_API_BASE = 'https://api.jamendo.com/v3.0';
-const CLIENT_ID = import.meta.env.VITE_JAMENDO_CLIENT_ID || 'YOUR_CLIENT_ID';
+// Using demo client ID - replace with your own from https://developer.jamendo.com
+const CLIENT_ID = import.meta.env.VITE_JAMENDO_CLIENT_ID || '4366f696';
 
 // Cache for API responses
 const cache = new Map<string, { data: any; timestamp: number }>();
