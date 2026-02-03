@@ -1,0 +1,108 @@
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 150px;
+}
+
+.volume-control__mute-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.volume-control__mute-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-color);
+}
+
+.volume-control__mute-btn:active {
+  transform: scale(0.95);
+}
+
+.volume-control__slider {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: height 0.2s ease;
+}
+
+.volume-control__slider:hover {
+  height: 6px;
+}
+
+.volume-control__slider:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.volume-control__progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.volume-control__thumb {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  transform: translateX(6px);
+}
+
+.volume-control__slider:hover .volume-control__thumb,
+.volume-control__slider:focus .volume-control__thumb {
+  opacity: 1;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .volume-control__slider {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .volume-control {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .volume-control {
+    min-width: 120px;
+  }
+
+  .volume-control__slider {
+    height: 3px;
+  }
+
+  .volume-control__slider:hover {
+    height: 4px;
+  }
+
+  .volume-control__thumb {
+    width: 10px;
+    height: 10px;
+    transform: translateX(5px);
+  }
+}

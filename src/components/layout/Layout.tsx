@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import BottomNav from './BottomNav';
 import Header from './Header';
+import { PlayerBar } from '../player';
 import './Layout.css';
 
 interface LayoutProps {
@@ -33,6 +34,7 @@ export default function Layout({ children, title }: LayoutProps) {
         <main className="layout-content">{children}</main>
       </div>
       <BottomNav />
+      <PlayerBar />
     </div>
   );
 }

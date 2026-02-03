@@ -1,0 +1,115 @@
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.player-controls__btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.player-controls__btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+.player-controls__btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.player-controls__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.player-controls__btn:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.player-controls__btn--small {
+  padding: 6px;
+}
+
+.player-controls__btn--play {
+  background: var(--accent-color);
+  color: white;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.player-controls__btn--play:hover:not(:disabled) {
+  background: var(--accent-color);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.player-controls__btn--play:active:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.player-controls__btn.active {
+  color: var(--accent-color);
+}
+
+.player-controls__repeat-badge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 10px;
+  font-weight: 700;
+  background: var(--accent-color);
+  color: white;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .player-controls {
+    gap: 4px;
+  }
+
+  .player-controls__btn--small {
+    padding: 4px;
+  }
+
+  .player-controls__btn--play {
+    width: 40px;
+    height: 40px;
+  }
+
+  .player-controls__btn--play svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .player-controls__btn--small svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .player-controls__btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
